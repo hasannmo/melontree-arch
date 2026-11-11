@@ -1,0 +1,82 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "output": ["HDMI-1", "DP-1", "eDP-1"],
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["cpu", "memory", "temperature", "pulseaudio", "bluetooth", "network", "battery"],
+    
+    "hyprland/workspaces": {
+        "format": "{id}",
+        "on-click": "activate",
+        "all-outputs": false
+    },
+    
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 50
+    },
+    
+    "clock": {
+        "format": "{:%a, %d %b %H:%M}",
+        "tooltip-format": "{:%Y-%m-%d | %H:%M:%S}"
+    },
+    
+    "cpu": {
+        "format": "󰍛 {usage}%",
+        "interval": 1,
+        "on-click": "kitty btop"
+    },
+    
+    "memory": {
+        "format": "󰟜 {used:0.1f}G",
+        "interval": 2,
+        "on-click": "kitty btop"
+    },
+    
+    "temperature": {
+        "thermal-zone": 0,
+        "format": "󰔏 {temperatureC}°C",
+        "interval": 2
+    },
+    
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰖁 Muted",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "scroll-step": 5,
+        "on-click": "pavucontrol",
+        "on-click-right": "pamixer -t"
+    },
+    
+    "bluetooth": {
+        "format": "󰂯 {status}",
+        "format-connected": "󰂯 {num_connections}",
+        "on-click": "blueman-manager"
+    },
+    
+    "network": {
+        "format-wifi": "󰤨 {essid}",
+        "format-ethernet": "󰈀 Wired",
+        "format-disconnected": "󰌘 Disconnected",
+        "on-click": "nm-connection-editor"
+    },
+    
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰂅 {capacity}%",
+        "format-full": "󱟢 {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "interval": 30
+    }
+}

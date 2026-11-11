@@ -1,0 +1,89 @@
+configuration {
+    modi: "drun,run,window";
+    font: "JetBrains Mono Nerd Font 12";
+    location: 0;
+    anchor: northwest;
+    show-icons: true;
+    display-drun: "Apps";
+    display-run: "Run";
+    display-window: "Windows";
+    drun-display-format: "{icon} {name}";
+}
+
+@theme "/dev/null"
+
+* {
+    bg0: #1e1e2e;
+    bg1: #313244;
+    bg2: #45475a;
+    bg3: #585b70;
+    fg0: #cdd6f4;
+    fg1: #bac2de;
+    red: #f38ba8;
+    green: #a6e3a1;
+    blue: #89b4fa;
+    
+    background-color: @bg0;
+    text-color: @fg0;
+    border: 2px;
+    border-color: @bg2;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+window {
+    width: 50%;
+    height: 60%;
+    border-radius: 15px;
+}
+
+inputbar {
+    children: [prompt, entry];
+    padding: 15px;
+    spacing: 10px;
+    background-color: @bg1;
+    border-radius: 10px;
+    border: 2px solid @bg2;
+}
+
+prompt {
+    text-color: @green;
+    font: "JetBrains Mono Nerd Font Bold 12";
+}
+
+entry {
+    placeholder: "Type to search...";
+    text-color: @fg0;
+}
+
+listview {
+    columns: 1;
+    lines: 10;
+    spacing: 10px;
+    dynamic: true;
+}
+
+element {
+    padding: 10px;
+    border-radius: 8px;
+    background-color: @bg1;
+}
+
+element.selected {
+    background-color: @green;
+    text-color: @bg0;
+}
+
+element.active {
+    background-color: @blue;
+    text-color: @bg0;
+}
+
+element-icon {
+    size: 24px;
+    margin-right: 10px;
+}
+
+element-text {
+    vertical-align: 0.5;
+}

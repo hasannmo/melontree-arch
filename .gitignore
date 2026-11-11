@@ -1,0 +1,11 @@
+# OS / Editor temporary files
+*~
+*.swp
+*.bak
+.DS_Store
+
+# Sensitive files / keys
+*.pem
+*.key
+*.token
+*.env

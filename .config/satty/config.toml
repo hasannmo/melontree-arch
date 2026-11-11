@@ -1,0 +1,6 @@
+[general]
+early-exit = false
+initial-tool = "pointer"
+default-hide-toolbars = false
+output-filename = "~/screenshot/satty-%Y-%m-%d_%H:%M:%S.png"
+copy-command = "wl-copy"

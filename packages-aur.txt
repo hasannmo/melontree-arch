@@ -1,0 +1,15 @@
+claude-desktop
+dynamips
+gns3-gui-2
+gns3-server-2
+jmtpfs
+matlab-mpm
+minecraft-launcher
+minecraft-launcher-debug
+qt6-websockets-debug
+quickshell-git
+ubridge
+visual-studio-code-bin
+vmware-workstation
+yay
+yay-debug

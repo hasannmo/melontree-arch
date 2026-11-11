@@ -1,0 +1,14 @@
+[font]
+normal = ["JetBrainsMono Nerd Font"]
+size = 14.0
+
+[window]
+transparency = 0.85
+blur = true
+
+[cursor]
+antialiasing = true
+animation-length = 0.08
+trail-size = 0.5
+
+vsync = true
