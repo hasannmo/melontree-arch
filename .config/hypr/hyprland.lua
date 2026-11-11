@@ -138,10 +138,8 @@ hl.bind("SUPER + SHIFT + R", hl.dsp.exec_cmd("hyprctl reload"))
 hl.bind("SUPER + N", hl.dsp.exec_cmd("neovide"))
 hl.bind("SUPER + K", hl.dsp.exec_cmd("kate"))
 hl.bind("SUPER + P", hl.dsp.exec_cmd("wallpaper-cycle.sh"))
--- Force-close all windows on the current workspace (no confirmation)
-hl.bind("SUPER + SHIFT + X", hl.dsp.exec_cmd(
-    "hyprctl clients -j | jq -r '.[] | select(.workspace.id == (\"'$(hyprctl activeworkspace -j | jq -r .id)'\"|tonumber)) | .pid' | xargs -r kill -9"
-))
+-- Close all windows on the current workspace (by window address, preserving other workspaces)
+hl.bind("SUPER + SHIFT + X", hl.dsp.exec_cmd("close-workspace-windows.sh"))
 
 -- Focus movement
 hl.bind("SUPER + left",  hl.dsp.focus({ direction = "left" }))
