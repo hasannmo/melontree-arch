@@ -129,6 +129,7 @@ hl.bind("SUPER + X", hl.dsp.window.close())
 hl.bind("SUPER + F", hl.dsp.exec_cmd(fileManager))
 hl.bind("SUPER + SHIFT + F", hl.dsp.exec_cmd("kitty -e yazi")) -- yazi is a TUI app, needs a terminal
 hl.bind("SUPER + B", hl.dsp.exec_cmd("firefox"))
+hl.bind("SUPER + M", hl.dsp.exec_cmd("qs ipc call musicWidget toggle"))
 hl.bind("SUPER + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind("SUPER + R", hl.dsp.exec_cmd(menu))
 hl.bind("SUPER + A", hl.dsp.exec_cmd("code"))
