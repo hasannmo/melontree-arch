@@ -1,6 +1,6 @@
 # melontree-arch
 
-Personal Arch Linux configuration records and dotfiles for Hyprland desktop environment.
+Personal Arch Linux configuration records, user scripts, and dotfiles for Hyprland desktop environment.
 
 Based on best practices from [ArchWiki Dotfiles](https://wiki.archlinux.org/title/Dotfiles) and [Arch Linux](https://archlinux.org/).
 
@@ -23,11 +23,14 @@ melontree-arch/
 │   ├── satty/           # Screenshot annotation tool
 │   ├── neovide/         # Neovim GUI configuration
 │   └── starship.toml    # Shell prompt styling
+├── .local/
+│   └── bin/             # Custom CLI commands & desktop scripts (wallpaper-cycle, screenshot, etc.)
+├── wallpapers/          # Curated desktop wallpaper pool
 ├── .zshrc               # Zsh configuration
 ├── .bashrc              # Bash configuration
 ├── packages-explicit.txt # Explicitly installed native packages (`pacman -Qqe`)
 ├── packages-aur.txt      # Foreign/AUR packages (`pacman -Qqem`)
-├── install.sh           # Script to symlink configs and restore setup
+├── install.sh           # Automated installer for symlinks, binaries, and wallpaper pool
 └── README.md
 ```
 
@@ -47,13 +50,17 @@ sudo pacman -S --needed - < packages-explicit.txt
 yay -S --needed - < packages-aur.txt
 ```
 
-### 2. Deploy Dotfiles
+### 2. Deploy Dotfiles, Scripts & Wallpapers
 
-Run the restoration script to symlink configs to `~/.config` and home directory:
+Run the restoration script:
 
 ```bash
 chmod +x install.sh
 ./install.sh
 ```
 
-Existing configuration folders are backed up as `*.bak` automatically.
+What `install.sh` handles:
+- Symlinks `.config/*` to `~/.config/` (backs up existing configs to `.bak`).
+- Symlinks all scripts in `.local/bin/*` to `~/.local/bin/` with executable permissions.
+- Populates the wallpaper pool in `~/paper/pool` and `~/.local/share/wallpapers`.
+- Links `.zshrc` and `.bashrc`.
