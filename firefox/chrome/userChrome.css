@@ -1,0 +1,348 @@
+/* ==========================================================================
+   ASHEN REVERIE - FIREFOX USERCHROME THEME
+   Reference: ~/melontree_co.md
+   ========================================================================== */
+
+:root {
+  /* Ashen Reverie Palette Variables */
+  --ashen-charcoal-100: #1B1A18;
+  --ashen-charcoal-200: #292724;
+  --ashen-charcoal-300: #3B3731;
+  --ashen-charcoal-400: #514B43;
+
+  --ashen-ivory-100:    #A89C91;
+  --ashen-ivory-200:    #C8BFB5;
+  --ashen-ivory-300:    #E0D8D0;
+  --ashen-ivory-400:    #F4EEE5;
+
+  --ashen-vermilion-100: #632B27;
+  --ashen-vermilion-200: #9E433B;
+  --ashen-vermilion-300: #C85B4D;
+  --ashen-vermilion-400: #E98570;
+
+  --ashen-steel-100:    #28383B;
+  --ashen-steel-200:    #3F6265;
+  --ashen-steel-300:    #62878A;
+  --ashen-steel-400:    #91B5B5;
+
+  --ashen-sage-300:     #7F9478;
+  --ashen-ochre-300:    #C2A15B;
+
+  /* Global Toolbar Overrides */
+  --toolbar-bgcolor: var(--ashen-charcoal-100) !important;
+  --toolbar-color: var(--ashen-ivory-300) !important;
+  --toolbar-field-background-color: var(--ashen-charcoal-200) !important;
+  --toolbar-field-color: var(--ashen-ivory-400) !important;
+  --toolbar-field-border-color: var(--ashen-charcoal-300) !important;
+  --toolbar-field-focus-background-color: var(--ashen-charcoal-200) !important;
+  --toolbar-field-focus-color: var(--ashen-ivory-400) !important;
+  --toolbar-field-focus-border-color: var(--ashen-charcoal-300) !important;
+  
+  --tab-selected-bgcolor: var(--ashen-charcoal-200) !important;
+  --tab-selected-textcolor: var(--ashen-ivory-400) !important;
+  --tab-hover-background-color: var(--ashen-charcoal-300) !important;
+
+  --lwt-accent-color: var(--ashen-charcoal-100) !important;
+  --lwt-text-color: var(--ashen-ivory-400) !important;
+  --arrowpanel-background: var(--ashen-charcoal-200) !important;
+  --arrowpanel-color: var(--ashen-ivory-300) !important;
+  --arrowpanel-border-color: var(--ashen-charcoal-300) !important;
+
+  /* URL Bar Specific Variables */
+  --urlbar-box-bgcolor: var(--ashen-charcoal-200) !important;
+  --urlbar-box-focus-bgcolor: var(--ashen-charcoal-200) !important;
+  --urlbar-box-hover-bgcolor: var(--ashen-charcoal-300) !important;
+  --autocomplete-popup-highlight-background: var(--ashen-steel-100) !important;
+}
+
+/* --- Window & Main Frame Cleanliness --- */
+#navigator-toolbox {
+  background-color: var(--ashen-charcoal-100) !important;
+  border-bottom: 1px solid var(--ashen-charcoal-300) !important;
+}
+
+.titlebar-spacer {
+  display: none !important;
+}
+
+/* --- Navigation Bar (URL, Back/Forward, Extensions) --- */
+#nav-bar {
+  background-color: var(--ashen-charcoal-100) !important;
+  box-shadow: none !important;
+  padding: 4px 6px !important;
+  border: none !important;
+}
+
+/* ==========================================================================
+   BOOKMARKS TOOLBAR (FIX: WHITE STRIP / FRAME)
+   ========================================================================== */
+#PersonalToolbar,
+#personal-bookmarks,
+#PlacesToolbar,
+#PlacesToolbarItems {
+  background-color: var(--ashen-charcoal-100) !important;
+  background: var(--ashen-charcoal-100) !important;
+  color: var(--ashen-ivory-300) !important;
+  border: none !important;
+  border-bottom: 1px solid var(--ashen-charcoal-300) !important;
+  box-shadow: none !important;
+}
+
+#PlacesToolbarItems toolbarbutton,
+#PersonalToolbar toolbarbutton {
+  color: var(--ashen-ivory-300) !important;
+}
+
+#PlacesToolbarItems toolbarbutton:hover,
+#PersonalToolbar toolbarbutton:hover {
+  background-color: var(--ashen-charcoal-200) !important;
+  color: var(--ashen-ivory-400) !important;
+  border-radius: 6px !important;
+}
+
+/* ==========================================================================
+   URLBAR / MEGABAR (FIX WHITE BORDER / OUTLINE ON BREAKOUT)
+   ========================================================================== */
+
+#urlbar,
+#searchbar,
+#urlbar-container,
+.urlbar-input-container {
+  color: var(--ashen-ivory-400) !important;
+}
+
+/* Strip default white/light background from all wrappers */
+#urlbar,
+#urlbar-input-container,
+.urlbar-input-container,
+#urlbar[breakout][breakout-extend],
+#urlbar[breakout][breakout-extend] > #urlbar-input-container {
+  background-color: transparent !important;
+  background: transparent !important;
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Base and expanded background box */
+#urlbar-background,
+.urlbar-background,
+#searchbar {
+  background-color: var(--ashen-charcoal-200) !important;
+  background: var(--ashen-charcoal-200) !important;
+  border: 1px solid var(--ashen-charcoal-300) !important;
+  border-radius: 8px !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Focused / Breakout Extended State: Fix white border around search history/suggestions */
+#urlbar[focused="true"] > #urlbar-background,
+#urlbar[breakout][breakout-extend] > #urlbar-background,
+#urlbar[open] > #urlbar-background {
+  background-color: var(--ashen-charcoal-200) !important;
+  background: var(--ashen-charcoal-200) !important;
+  border: 1px solid var(--ashen-charcoal-300) !important;
+  outline: none !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Top Input Field inside the active search */
+#urlbar-input,
+.urlbar-input,
+#searchbar input {
+  color: var(--ashen-ivory-400) !important;
+  background: transparent !important;
+  font-family: 'JetBrainsMono Nerd Font', 'JetBrains Mono', monospace !important;
+  font-size: 13px !important;
+}
+
+#urlbar-input::placeholder,
+.urlbar-input::placeholder {
+  color: var(--ashen-charcoal-400) !important;
+}
+
+/* Search engine badge / one-offs container */
+.search-one-offs,
+#urlbar-search-mode-indicator {
+  background-color: var(--ashen-charcoal-300) !important;
+  color: var(--ashen-ivory-300) !important;
+  border-radius: 6px !important;
+  border: none !important;
+}
+
+/* ==========================================================================
+   AUTOCOMPLETE RESULTS DROPDOWN (THEMED IN ASHEN REVERIE)
+   ========================================================================== */
+
+.urlbarView,
+.urlbarView-body-inner,
+.urlbarView-body-outer,
+#urlbar-results,
+.urlbarView-results {
+  background-color: var(--ashen-charcoal-200) !important;
+  background: var(--ashen-charcoal-200) !important;
+  color: var(--ashen-ivory-300) !important;
+  border: none !important;
+  outline: none !important;
+}
+
+/* Remove default separator lines inside the dropdown */
+.urlbarView-body-inner,
+.urlbarView:not([noresults]) > .search-one-offs:not([hidden]) {
+  border-top: 1px solid var(--ashen-charcoal-300) !important;
+}
+
+/* Individual Result Row */
+.urlbarView-row {
+  border-radius: 6px !important;
+  margin: 2px 4px !important;
+  padding-block: 4px !important;
+}
+
+.urlbarView-row:hover {
+  background-color: var(--ashen-charcoal-300) !important;
+}
+
+/* Selected row (Keyboard navigation) */
+.urlbarView-row[selected] {
+  background-color: var(--ashen-steel-100) !important;
+  border-left: 3px solid var(--ashen-vermilion-300) !important;
+}
+
+.urlbarView-row[selected] .urlbarView-title,
+.urlbarView-row:hover .urlbarView-title {
+  color: var(--ashen-ivory-400) !important;
+}
+
+.urlbarView-title {
+  color: var(--ashen-ivory-300) !important;
+  font-size: 12.5px !important;
+}
+
+.urlbarView-title-separator::before {
+  color: var(--ashen-charcoal-400) !important;
+}
+
+.urlbarView-secondary,
+.urlbarView-url {
+  color: var(--ashen-steel-300) !important;
+  font-size: 11.5px !important;
+}
+
+.urlbarView-action {
+  color: var(--ashen-ivory-100) !important;
+}
+
+/* Buttons and icons */
+#nav-bar toolbarbutton,
+#TabsToolbar toolbarbutton {
+  fill: var(--ashen-ivory-200) !important;
+  color: var(--ashen-ivory-200) !important;
+}
+
+#nav-bar toolbarbutton:hover,
+#TabsToolbar toolbarbutton:hover {
+  background-color: var(--ashen-charcoal-300) !important;
+  border-radius: 6px !important;
+}
+
+/* --- Tab Bar & Tabs --- */
+#TabsToolbar {
+  background-color: var(--ashen-charcoal-100) !important;
+}
+
+.tabbrowser-tab {
+  padding-inline: 2px !important;
+}
+
+.tab-background {
+  border-radius: 8px 8px 0 0 !important;
+  margin-block: 3px 0 !important;
+  border: 1px solid transparent !important;
+  border-bottom: none !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease !important;
+}
+
+/* Inactive Tab */
+.tabbrowser-tab:not([selected="true"]) .tab-background {
+  background-color: transparent !important;
+}
+
+.tabbrowser-tab:not([selected="true"]):hover .tab-background {
+  background-color: var(--ashen-charcoal-200) !important;
+}
+
+.tabbrowser-tab:not([selected="true"]) .tab-label {
+  color: var(--ashen-ivory-100) !important;
+  font-size: 12px !important;
+}
+
+/* Active Tab: Charcoal background with Vermilion top accent */
+.tabbrowser-tab[selected="true"] .tab-background {
+  background-color: var(--ashen-charcoal-200) !important;
+  border-color: var(--ashen-charcoal-300) !important;
+  border-top: 2px solid var(--ashen-vermilion-300) !important;
+}
+
+.tabbrowser-tab[selected="true"] .tab-label {
+  color: var(--ashen-ivory-400) !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+}
+
+/* Audio indicator */
+.tab-icon-sound[soundplaying="true"],
+.tab-icon-overlay[soundplaying="true"] {
+  fill: var(--ashen-steel-300) !important;
+}
+
+/* Close button on tabs */
+.tab-close-button {
+  border-radius: 4px !important;
+  fill: var(--ashen-ivory-100) !important;
+}
+
+.tab-close-button:hover {
+  background-color: var(--ashen-vermilion-200) !important;
+  fill: var(--ashen-ivory-400) !important;
+}
+
+/* --- Popups, Context Menus, and Panels --- */
+menupopup,
+panel {
+  --panel-background: var(--ashen-charcoal-200) !important;
+  --panel-border-color: var(--ashen-charcoal-300) !important;
+  --panel-color: var(--ashen-ivory-400) !important;
+}
+
+menupopup {
+  background-color: var(--ashen-charcoal-200) !important;
+  border: 1px solid var(--ashen-charcoal-300) !important;
+  border-radius: 8px !important;
+  color: var(--ashen-ivory-300) !important;
+}
+
+menuitem:hover,
+menu:hover {
+  background-color: var(--ashen-charcoal-300) !important;
+  color: var(--ashen-ivory-400) !important;
+}
+
+/* Clean up unwanted borders & dividers */
+#tabbrowser-tabs,
+.tabbrowser-tab {
+  border: none !important;
+}
+
+#nav-bar,
+#TabsToolbar {
+  border-top: none !important;
+}
+
+#sidebar-header,
+#sidebar-box {
+  background-color: var(--ashen-charcoal-100) !important;
+  border-color: var(--ashen-charcoal-300) !important;
+  color: var(--ashen-ivory-300) !important;
+}

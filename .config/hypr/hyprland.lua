@@ -61,6 +61,9 @@ local menu        = "wofi --show drun"
 -------------------
 -- https://wiki.hypr.land/Configuring/Basics/Autostart/
 hl.on("hyprland.start", function()
+hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+hl.exec_cmd("systemctl --user restart mako")
 hl.exec_cmd("waybar")
 hl.exec_cmd("awww-daemon")
 hl.exec_cmd("nm-applet")
@@ -139,6 +142,7 @@ hl.bind("SUPER + SHIFT + R", hl.dsp.exec_cmd("hyprctl reload"))
 hl.bind("SUPER + N", hl.dsp.exec_cmd("neovide"))
 hl.bind("SUPER + K", hl.dsp.exec_cmd("kate"))
 hl.bind("SUPER + P", hl.dsp.exec_cmd("wallpaper-cycle.sh"))
+hl.bind("SUPER + SHIFT + A", hl.dsp.exec_cmd("~/.config/hypr/scripts/toggle-firefox-ascii.sh"))
 -- Force-close all windows on the current workspace (no confirmation)
 hl.bind("SUPER + SHIFT + X", hl.dsp.exec_cmd(
     "hyprctl clients -j | jq -r '.[] | select(.workspace.id == (\"'$(hyprctl activeworkspace -j | jq -r .id)'\"|tonumber)) | .pid' | xargs -r kill -9"

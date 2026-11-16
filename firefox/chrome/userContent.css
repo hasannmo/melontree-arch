@@ -1,0 +1,80 @@
+/* ==========================================================================
+   ASHEN REVERIE - FIREFOX USERCONTENT THEME
+   Applies directly to native Firefox about:home and about:newtab
+   ========================================================================== */
+
+@-moz-document url("about:home"), url("about:newtab") {
+  /* Keep all default Firefox features (Shortcuts, Weather, Firefox Suggest, Stories)
+     while replacing only the background with animated ASCII petals */
+  body {
+    background-color: #1B1A18 !important;
+    background-image: url("ascii_petals.svg") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    color: #F4EEE5 !important;
+    font-family: 'JetBrainsMono Nerd Font', 'JetBrains Mono', monospace !important;
+  }
+
+  /* Make containers transparent so the animated petals show through */
+  .outer-wrapper,
+  main,
+  .body-wrapper {
+    background: transparent !important;
+  }
+
+  /* Search bar on the newtab page */
+  .search-wrapper .search-handoff-button {
+    background-color: rgba(41, 39, 36, 0.8) !important;
+    border: 1px solid #3B3731 !important;
+    color: #F4EEE5 !important;
+    border-radius: 10px !important;
+    backdrop-filter: blur(8px) !important;
+  }
+
+  .search-wrapper .search-handoff-button:hover {
+    border-color: #C85B4D !important;
+  }
+
+  /* Shortcut Tiles */
+  .top-site-outer .tile {
+    background-color: rgba(41, 39, 36, 0.8) !important;
+    border: 1px solid #3B3731 !important;
+    border-radius: 8px !important;
+  }
+
+  .top-site-outer:hover .tile {
+    background-color: #3B3731 !important;
+    border-color: #C85B4D !important;
+  }
+
+  .top-site-outer .title {
+    color: #C8BFB5 !important;
+  }
+
+  /* Weather Widget */
+  .weather {
+    background-color: rgba(41, 39, 36, 0.75) !important;
+    border: 1px solid #3B3731 !important;
+    border-radius: 10px !important;
+    color: #F4EEE5 !important;
+  }
+
+  /* Customize button bottom-right */
+  .personalize-button {
+    background-color: rgba(41, 39, 36, 0.8) !important;
+    border: 1px solid #3B3731 !important;
+    fill: #C8BFB5 !important;
+  }
+
+  .personalize-button:hover {
+    background-color: #3B3731 !important;
+    fill: #F4EEE5 !important;
+  }
+}
+
+/* Minimal Ashen Reverie Scrollbars */
+:root {
+  scrollbar-color: #3B3731 #1B1A18 !important;
+  scrollbar-width: thin !important;
+}
