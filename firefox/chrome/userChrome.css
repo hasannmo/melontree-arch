@@ -53,6 +53,15 @@
   --urlbar-box-focus-bgcolor: var(--ashen-charcoal-200) !important;
   --urlbar-box-hover-bgcolor: var(--ashen-charcoal-300) !important;
   --autocomplete-popup-highlight-background: var(--ashen-steel-100) !important;
+
+  /* Force Firefox internal urlbar outline/border tokens to Charcoal */
+  --urlbar-background-border-open: 1px solid var(--ashen-charcoal-300) !important;
+  --urlbar-background-border-focused: 1px solid var(--ashen-charcoal-300) !important;
+  --urlbar-background-border: 1px solid var(--ashen-charcoal-300) !important;
+  --urlbar-input-container-outline-open: none !important;
+  --urlbar-input-container-outline-open-focused: none !important;
+  --urlbar-background-outline-focused: none !important;
+  --urlbar-background-box-shadow-open: 0 4px 24px rgba(0, 0, 0, 0.6) !important;
 }
 
 /* --- Window & Main Frame Cleanliness --- */
@@ -111,12 +120,14 @@
   color: var(--ashen-ivory-400) !important;
 }
 
-/* Strip default white/light background from all wrappers */
+/* Strip default white/light background & outline from all wrappers */
 #urlbar,
 #urlbar-input-container,
 .urlbar-input-container,
 #urlbar[breakout][breakout-extend],
-#urlbar[breakout][breakout-extend] > #urlbar-input-container {
+#urlbar[breakout][breakout-extend] > #urlbar-input-container,
+.urlbar[popover-open] > .urlbar-input-container,
+#urlbar[focused="true"] > .urlbar-input-container {
   background-color: transparent !important;
   background: transparent !important;
   outline: none !important;
@@ -127,6 +138,7 @@
 /* Base and expanded background box */
 #urlbar-background,
 .urlbar-background,
+.urlbarView-background,
 #searchbar {
   background-color: var(--ashen-charcoal-200) !important;
   background: var(--ashen-charcoal-200) !important;
@@ -136,10 +148,14 @@
   box-shadow: none !important;
 }
 
-/* Focused / Breakout Extended State: Fix white border around search history/suggestions */
+/* Focused / Breakout Extended / Popover State: Fix white border around search history/suggestions */
 #urlbar[focused="true"] > #urlbar-background,
 #urlbar[breakout][breakout-extend] > #urlbar-background,
-#urlbar[open] > #urlbar-background {
+#urlbar[open] > #urlbar-background,
+#urlbar[popover-open] > #urlbar-background,
+.urlbar[popover-open] > .urlbar-background,
+.urlbarView-background,
+.urlbar > .urlbarView > .urlbarView-background {
   background-color: var(--ashen-charcoal-200) !important;
   background: var(--ashen-charcoal-200) !important;
   border: 1px solid var(--ashen-charcoal-300) !important;
